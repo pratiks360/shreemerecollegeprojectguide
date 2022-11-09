@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("usermgmt")
+@RequestMapping("/usermgmt")
 public class UserController {
     //http://localhost:8080/usermgmt/status
     @GetMapping(path = "/status")

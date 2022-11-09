@@ -18,9 +18,16 @@ public class Customer {
     private String phone;
     private String custEmail;
 
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
 
-    @ManyToOne
-    Order order;
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public Long getId() {
         return id;
