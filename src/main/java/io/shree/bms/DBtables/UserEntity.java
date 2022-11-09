@@ -3,7 +3,7 @@ package io.shree.bms.DBtables;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "USER")
 public class UserEntity {
 
     @Id
