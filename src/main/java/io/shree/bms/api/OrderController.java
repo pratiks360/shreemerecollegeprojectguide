@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("order")
+@RequestMapping("/order")
 public class OrderController {
 
     //add
@@ -22,16 +22,16 @@ public class OrderController {
                                             @RequestParam String delivDate, @RequestParam Long customer,
                                             @RequestParam String preference, @RequestParam String allergies) {
         Order order = new Order();
-        Customer cust = customerRepo.getById(customer);
+        Customer cust = customerRepo.findByid(customer);
         order.setName(name);
         order.setPrice(price);
         order.setOrderDate(orderDate);
-        order.setDelivDate(delivDate);
+        order.setDeliveryDate(delivDate);
 
-        order.setCust(cust);
-        order.setPreference(preference);
-        order.setAllergies(allergies);
+        order.setCustomer(cust);
 
+    order.setAllergies(allergies);
+    order.setPreference(preference);
 
         orderRepo.save(order);
         return "Order Added";

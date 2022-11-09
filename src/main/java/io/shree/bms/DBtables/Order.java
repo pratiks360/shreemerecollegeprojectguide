@@ -1,10 +1,10 @@
 package io.shree.bms.DBtables;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
-@Table(name = "ORDER")
+@Table(name = "ORDERS")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,12 +14,39 @@ public class Order {
     private String name;
     private String price;
     private String orderDate;
-    private String delivDate;
-    @OneToMany(fetch = FetchType.LAZY ,mappedBy = "customer")
+    private String deliveryDate;
 
-    private List<Customer> cust;
     private String preference;
+
     private String allergies;
+
+    @ManyToOne
+    private Customer customer;
+
+
+    public String getPreference() {
+        return preference;
+    }
+
+    public void setPreference(String preference) {
+        this.preference = preference;
+    }
+
+    public String getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Long getId() {
         return id;
@@ -53,36 +80,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public String getDelivDate() {
-        return delivDate;
+    public String getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setDelivDate(String delivDate) {
-        this.delivDate = delivDate;
-    }
-
-
-    public String getPreference() {
-        return preference;
-    }
-
-    public void setPreference(String preference) {
-        this.preference = preference;
-    }
-
-    public String getAllergies() {
-        return allergies;
-    }
-
-    public void setAllergies(String allergies) {
-        this.allergies = allergies;
-    }
-
-    public List<Customer> getCust() {
-        return cust;
-    }
-
-    public void setCust(List<Customer> cust) {
-        this.cust = cust;
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 }
