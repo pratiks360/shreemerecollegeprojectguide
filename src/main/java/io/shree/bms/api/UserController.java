@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class controller {
-
-
+@RequestMapping("usermgmt")
+public class UserController {
+    //http://localhost:8080/usermgmt/status
     @GetMapping(path = "/status")
-    public String health(){
+    public String health() {
 
         return "Started";
     }
