@@ -45,7 +45,7 @@ Tables are created automatically (`ddl-auto=update`).
 
 ## 🔒 Security Notes
 
-- `application.properties` contains a sample DB login — replace it with your own and move it to environment variables before reusing this code.
+- The database password is read from the `DB_PASSWORD` environment variable (`spring.datasource.password=${DB_PASSWORD}`).
 
 ## 🛠️ Tech Stack
 
